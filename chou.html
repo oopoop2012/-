@@ -1,0 +1,53 @@
+<html>
+
+<input id=sr type=text />
+<button onclick="tj()">提交</button>
+
+<p id="cj"></p>
+
+<button onclick="cq()">再抽一次</button>
+
+<p id="dr"></p>
+
+
+<script>
+var arr=new Array()
+
+function tj()
+	{
+	var a=document.getElementById("sr").value
+	arr=[]
+	for (var i=0;i<a;i++)
+		{
+			arr.push(i+1)
+		}
+//	var b=Math.round((arr.length-1)*Math.random())+1
+	
+	document.getElementById("cj").innerHTML="共有"+arr.length+"位用户参与抽奖。"
+//	arr.splice(b-1,1)
+//	console.log(arr)
+	
+	}
+
+function cq()
+	{
+	
+	var b=Math.round((arr.length-1)*Math.random())+1
+	if( arr[b-1] === undefined )
+	{
+		document.getElementById("dr").innerHTML="抽完"
+	}
+	else
+	{	
+		document.getElementById("dr").innerHTML="第"+arr[b-1]+"位用户中奖"
+		arr.splice(b-1,1)
+	}
+	
+	console.log(arr)
+	}
+
+
+</script>
+
+
+</html>
